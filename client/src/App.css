@@ -126,6 +126,6 @@ text-align: left;
 }
 .runners{
   display:flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
 }
