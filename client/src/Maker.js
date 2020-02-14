@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Chart from "./components/Chart";
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 class WomenMaker extends React.Component {
     constructor() {
         super();
@@ -22,15 +23,13 @@ class WomenMaker extends React.Component {
         return (
             <div className="runners" >
                 runners
-                {this.state.runner.map(e => {
-                    return (
-                        <div>
-                            <p>Runner name: {e.name}</p>
-                            <p>Country: {e.country}</p>
-                            <p>Searches: {e.searches}</p>
-                        </div>
-                    )
-                })}
+                <LineChart width={1000} height={500} data={this.state.runner}>
+                    <Line type="monotone" dataKey="searches" stroke="#8884d8" />
+                    <CartesianGrid stroke="#ccc" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                </LineChart>
             </div>
         );
     }
